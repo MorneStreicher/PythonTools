@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+    <title>Data Dictionary</title>
+</head>
+<body>
+
+    <div id="body">
+		<div id="header-morne"></div>
+		
+        <div id="page">
+			<h1>{{table_name}}</h1>
+			
+			<p>
+                Description for table {{table_name}}.
+            </p>
+
+            <p>
+                <div class="datagrid">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="column-name">Name</th>
+                                <th class="column-nullable">Nullable?</th>
+                                <th class="column-type">Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for cur in result %}
+                            <tr>
+                                <td>{{ cur['COLUMN_NAME'] }}</td>
+                                <td>{{ cur['IS_NULLABLE'] }}</td>
+                                <td>{{ cur['COLUMN_TYPE'] }}</td>
+                                <td>
+                                    Description for {{ cur['COLUMN_NAME'] }}.
+                                </td>
+                            </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+            </p>
+		</div>
+    </div>
+</body>
+
+</html>
