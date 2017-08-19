@@ -1,12 +1,15 @@
 import json
-import yaml
+#import yaml
 import datetime
 import json
 import uuid
-import intelhex
+
 import os
 import sys
 from decimal import Decimal
+import random
+
+print str((random.randint(0, 9999999999))).zfill(10)
 
 print eval("{'Abbreviation': 'None', 'CurrencyCode': 'None', 'Rate': 'None', 'TranGID': 'bcd03a58-42be-11e7-9c2d-000c290d6cb5', 'Surcharge': 60.0}['CurrencyCode']")
 

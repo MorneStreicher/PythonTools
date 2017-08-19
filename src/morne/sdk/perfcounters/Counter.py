@@ -149,6 +149,10 @@ class TotalCountCounter(BaseCounter):
     def set_initial_value(self, value):
         self._count = value
 
+    def get_current_value(self):
+        with self.lock():
+            return self._count
+
     def get_values(self):
         result = []
 
