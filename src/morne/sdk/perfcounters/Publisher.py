@@ -124,7 +124,7 @@ class CsvFilePublisher(BasePublisher):
 
         file_name = os.path.join(path, "%s-StackTracesForAllThreads.txt" %
                                  (self._log_start_datetime.strftime("%Y%m%d%H%M%S")))
-        f = open(file_name, "a+")
+        f = open(file_name, "w+")
         try:
             code = []
             code.append("Current time: %s " % datetime.datetime.now())

@@ -99,7 +99,6 @@ class TimeCounter(BaseCounter):
             self._min_ms = None
             self._max_ms = None
 
-
     def clone(self):
         with self.lock():
             clone = TimeCounter(self.group(), self.name(), self.description(), self._include_min_max)
@@ -108,7 +107,6 @@ class TimeCounter(BaseCounter):
             clone._min_ms = self._min_ms
             clone._max_ms = self._max_ms
             return clone
-
 
 class CountCounter(BaseCounter):
     def __init__(self, group, name, description):
@@ -136,6 +134,37 @@ class CountCounter(BaseCounter):
     def clone(self):
         with self.lock():
             clone = CountCounter(self.group(), self.name(), self.description())
+            clone._count = self._count
+            return clone
+
+class TotalCountCounter(BaseCounter):
+    def __init__(self, group, name, description):
+        BaseCounter.__init__(self, group, name, description)
+        self._count = 0
+
+    def apply(self, value=None):
+        with self.lock():
+            self._count += 1
+
+    def set_initial_value(self, value):
+        self._count = value
+
+    def get_values(self):
+        result = []
+
+        v2 = dict()
+        v2["name"] = "Count"
+        v2["value"] = self._count
+        result.append(v2)
+
+        return result
+
+    def clear(self):
+        pass
+
+    def clone(self):
+        with self.lock():
+            clone = TotalCountCounter(self.group(), self.name(), self.description())
             clone._count = self._count
             return clone
 

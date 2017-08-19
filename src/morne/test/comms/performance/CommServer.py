@@ -73,7 +73,7 @@ CommServer.PERF_SQL_INSERT_DATA1 = Counter.TimeCounter( \
     "Our insert data statement 1",
     True)
 
-PerfCounters.PerfCounters.SqlCounters.register_counter(CommServer.PERF_SQL_INSERT_DATA1)
+PerfCounters.PerfCounters.ApplicationCounters.register_counter(CommServer.PERF_SQL_INSERT_DATA1)
 
 CommServer.PERF_SQL_INSERT_DATA2 = Counter.TimeCounter( \
     "CommServer", \
@@ -81,7 +81,7 @@ CommServer.PERF_SQL_INSERT_DATA2 = Counter.TimeCounter( \
     "Our insert data statement 2",
     True)
 
-PerfCounters.PerfCounters.SqlCounters.register_counter(CommServer.PERF_SQL_INSERT_DATA2)
+PerfCounters.PerfCounters.ApplicationCounters.register_counter(CommServer.PERF_SQL_INSERT_DATA2)
 
 ###############################################################################
 # The application entry point

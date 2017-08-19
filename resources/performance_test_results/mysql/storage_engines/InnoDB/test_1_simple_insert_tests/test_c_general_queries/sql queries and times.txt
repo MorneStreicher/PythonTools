@@ -1,0 +1,31 @@
+SELECT COUNT(*) FROM test_tableGO
+/* Affected rows: 0  Found rows: 1  Warnings: 0  Duration for 1 query: 1,172 sec. */
+
+SELECT MAX(float_1) FROM test_tableGO
+/* Affected rows: 0  Found rows: 1  Warnings: 0  Duration for 1 query: 41,704 sec. */
+
+SELECT MAX(float_11) FROM test_tableGO
+/* Affected rows: 0  Found rows: 1  Warnings: 0  Duration for 1 query: 43,875 sec. */
+
+Morne comments: Sequential table scans - time corresponds with sequential disk read times. 
+
+
+
+
+Adding a new column to a 20 GB table:
+	ALTER TABLE test_table ADD COLUMN new_column VARCHAR (50) NULL
+	
+	iotop:
+	
+		Total DISK READ :      68.62 M/s | Total DISK WRITE :     210.69 M/s
+		Actual DISK READ:      69.23 M/s | Actual DISK WRITE:     212.87 M/s
+
+	ALTER TABLE test_table ADD COLUMN new_column_2 VARCHAR(100) NULL
+	GO
+	/* Affected rows: 0  Found rows: 0  Warnings: 0  Duration for 1 query: 00:06:08 */
+	
+	MySQL Seems to re-create the table and drop the old table internally. Used double the disk space.
+	
+	
+	
+	

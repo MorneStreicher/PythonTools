@@ -151,7 +151,6 @@ class Application:
         """
         Log.Log.log().info("Starting application counter publisher")
         CsvFilePublisher(PerfCounters.ApplicationCounters, self.get_application_name(), self.get_app_suite_output_folder()).start()
-        CsvFilePublisher(PerfCounters.SqlCounters, self.get_application_name(), self.get_app_suite_output_folder()).start()
 
     def get_application_name(self):
         """

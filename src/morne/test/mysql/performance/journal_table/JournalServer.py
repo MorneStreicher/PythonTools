@@ -24,7 +24,7 @@ class JournalServer(Application):
             "Journal Insert Time", \
             "Time to insert into journal table")
 
-        PerfCounters.PerfCounters.SqlCounters.register_counter(self.PERF_SQL_INSERT_DATA)
+        PerfCounters.PerfCounters.ApplicationCounters.register_counter(self.PERF_SQL_INSERT_DATA)
 
     def get_application_name(self):
         return "MorneJournalServer"
