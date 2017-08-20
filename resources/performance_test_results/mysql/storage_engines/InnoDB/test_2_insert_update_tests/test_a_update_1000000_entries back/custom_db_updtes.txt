@@ -1,0 +1,9 @@
+SHOW STATUS WHERE Variable_name='InnoDB_buffer_pool_resize_status';
+
+SELECT @@innodb_buffer_pool_size;
+SELECT @@innodb_buffer_pool_instances;
+
+SELECT @@innodb_fill_factor ;
+
+
+SET GLOBAL innodb_buffer_pool_size=8564768768;
