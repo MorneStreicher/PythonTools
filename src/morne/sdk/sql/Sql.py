@@ -26,8 +26,9 @@ class Sql:
                 perf_counter.apply(sw)
         except Exception, e1:
             force_close = True
-            Log.log().critical("Error executing SQL: %s - %s" % (sql, traceback.format_exc()))
+            Log.log().critical("Error executing SQL: [%s] with values [%s] - %s" % (sql, repr(values), traceback.format_exc()))
             conn.rollback()
+            raise
         finally:
             morne.sdk.sql.connection_pool.return_connection(conn, force_close=force_close)
 
@@ -52,6 +53,7 @@ class Sql:
             force_close = True
             Log.log().critical("Error executing SQL: [%s] with values [%s]. Exception: %s" % (sql, repr(values), traceback.format_exc()))
             conn.rollback()
+            raise
         finally:
             morne.sdk.sql.connection_pool.return_connection(conn, force_close=force_close)
 
