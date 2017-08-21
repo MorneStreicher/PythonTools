@@ -27,6 +27,11 @@ class StoragEngineTest(Application):
             "Table Update Time", \
             "Time to update existing row in table")
 
+        self.PERF_SQL_LARGE_QUERY = Counter.TimeCounter( \
+            "StorageEngineTest", \
+            "Table Large Query Time", \
+            "Time to perform large query")
+
         self.PERF_SQL_TOTAL_ROW_COUNT = Counter.TotalCountCounter( \
             "StorageEngineTest", \
             "Total row count", \
@@ -34,6 +39,7 @@ class StoragEngineTest(Application):
 
         PerfCounters.PerfCounters.ApplicationCounters.register_counter(self.PERF_SQL_INSERT_DATA)
         PerfCounters.PerfCounters.ApplicationCounters.register_counter(self.PERF_SQL_UPDATE_DATA)
+        PerfCounters.PerfCounters.ApplicationCounters.register_counter(self.PERF_SQL_LARGE_QUERY)
         PerfCounters.PerfCounters.ApplicationCounters.register_counter(self.PERF_SQL_TOTAL_ROW_COUNT)
 
     def get_application_name(self):
@@ -68,9 +74,15 @@ class StoragEngineTest(Application):
             # Do the update, if we need to
             perc_to_update = int(self.application_config().get_application_setting("PercentageToUpdate", "50"))
             if random.randint(0, 100) <= perc_to_update:
-                id_to_update = self.PERF_SQL_TOTAL_ROW_COUNT.get_current_value() - 7000000
+                id_to_update = self.PERF_SQL_TOTAL_ROW_COUNT.get_current_value() - 1000000
                 sql = "UPDATE test_table SET float_1 = float_1 + 1, float_2 = float_2 + 1, float_3 = float_3 + 1 WHERE id = %s" % id_to_update
                 Sql.execute("test_database", sql, values, self.PERF_SQL_UPDATE_DATA)
+
+    def _do_large_query_work(self):
+        while True:
+            id = self.PERF_SQL_TOTAL_ROW_COUNT._count
+            sql = "SELECT SUM(float_1) FROM test_table WHERE id >= %s AND id <= %s" % (id-2000000, id)
+            Sql.execute("test_database", sql, None, self.PERF_SQL_LARGE_QUERY)
 
     def _dump_table_status(self):
         r = Sql.query("test_database", "SHOW TABLE STATUS ")
@@ -84,6 +96,10 @@ class StoragEngineTest(Application):
         # Start the workers
         for x in range(0, int(self.application_config().get_application_setting("ConcurrentCount", "1"))):
             Timer.create_callback(None, 1000, self._do_insert_update_work)
+
+        # Start large query workers
+        for x in range(0, int(self.application_config().get_application_setting("LargeQueryCount", "1"))):
+            Timer.create_callback(None, 1000, self._do_large_query_work)
 
         # Dump table status every 60 seconds
         Timer.create_callback(None, 1000, self._dump_table_status)
