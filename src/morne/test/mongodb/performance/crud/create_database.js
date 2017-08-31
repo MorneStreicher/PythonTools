@@ -1,0 +1,38 @@
+use test_db; 
+db.dropDatabase();
+
+use test_db;
+db.createCollection("test_table", 
+						{ capped: false,
+                          autoIndexId: true,
+                          size: 0,
+                          max: 0,
+                          // storageEngine: <document>,
+                          validator: { $and: [ { index_1: { $exists: true } }, { index_1: { $exists: true } } ] },
+                          validationLevel: "moderate",
+                          validationAction: "error",
+                          // indexOptionDefaults: <document>,
+                          // viewOn: <string>,
+                          // pipeline: <pipeline>,
+                          collation: { locale: "en" } });
+                          
+db.test_table.createIndex( 
+	{ index_1: 1 },
+	{
+	  background: false,
+	  unique: false,
+	  name: "index_1",
+	  partialFilterExpression: { index_1: { $exists: true } },
+	  sparse : false,
+	  // expireAfterSeconds : <integer>,
+	  // storageEngine: document
+	} 
+);
+
+
+
+db.test_table.createIndex( { index_2: 1 } );
+db.test_table.createIndex( { index_3: 1 } );
+db.test_table.createIndex( { index_4: 1 } );
+db.test_table.createIndex( { index_5: 1 } );
+

@@ -12,7 +12,7 @@ for x in range(0, 1):
         "age": 42
 
     }
-    conn.morne.col_1.insert(doc)
+    conn.test_db.test_table.insert(doc)
 
 end = datetime.datetime.now()
 

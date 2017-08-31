@@ -1,6 +1,9 @@
 import argparse
 import json
 import random
+import pymongo
+import json
+from morne.sdk.perfcounters import StopWatch
 
 import morne.sdk.app.Log as Log
 from morne.sdk.app.Application import Application, ApplicationConfig
@@ -8,7 +11,7 @@ from morne.sdk.app.Timer import Timer
 from morne.sdk.perfcounters import Counter, PerfCounters
 from morne.sdk.sql.Sql import Sql
 
-class StoragEngineTest(Application):
+class CRUDTest(Application):
     def __init__(self, _args):
         self.server_sap = None
         self.endpoint = None
@@ -18,25 +21,25 @@ class StoragEngineTest(Application):
         Application.__init__(self, config)
 
         self.PERF_SQL_INSERT_DATA = Counter.TimeCounter( \
-            "StorageEngineTest", \
+            "MongoDbCrudTest", \
             "Table Insert Time", \
             "Time to insert into table",
             True)
 
         self.PERF_SQL_UPDATE_DATA = Counter.TimeCounter( \
-            "StorageEngineTest", \
+            "MongoDbCrudTest", \
             "Table Update Time", \
             "Time to update existing row in table",
             True)
 
         self.PERF_SQL_LARGE_QUERY = Counter.TimeCounter( \
-            "StorageEngineTest", \
+            "MongoDbCrudTest", \
             "Table Large Query Time", \
             "Time to perform large query",
             True)
 
         self.PERF_SQL_TOTAL_ROW_COUNT = Counter.TotalCountCounter( \
-            "StorageEngineTest", \
+            "MongoDbCrudTest", \
             "Total row count", \
             "Total count of entries in the test table")
 
@@ -46,10 +49,11 @@ class StoragEngineTest(Application):
         PerfCounters.PerfCounters.ApplicationCounters.register_counter(self.PERF_SQL_TOTAL_ROW_COUNT)
 
     def get_application_name(self):
-        return "StorageEngineTest"
+        return "MongoDbCrudTest"
 
     def _do_insert_update_work(self):
         Log.Log.log().info("Starting insert / update worker...")
+        conn = pymongo.MongoClient('10.0.0.50', 27017)
 
         while True:
             values = dict()
@@ -65,33 +69,39 @@ class StoragEngineTest(Application):
             values["index_5"] = str((random.randint(0, 9999999999))).zfill(10)
 
             # Do the insert
-            sql = "INSERT INTO test_table(jdoc) VALUES " \
-                  "(%s)"
-            Sql.execute("test_database", sql, json.dumps(values), self.PERF_SQL_INSERT_DATA)
+            #jdoc = json.dumps(values)
+            #print jdoc
+            sw = StopWatch.StopWatch.start_new()
+            conn.test_db.test_table.insert(values)
+            sw.stop()
+            self.PERF_SQL_INSERT_DATA.apply(sw)
+
             self.PERF_SQL_TOTAL_ROW_COUNT.apply()
 
             # Do the update, if we need to
             perc_to_update = int(self.application_config().get_application_setting("PercentageToUpdate", "50"))
             if random.randint(1, 100) <= perc_to_update:
-                id_to_update = self.PERF_SQL_TOTAL_ROW_COUNT.get_current_value() - 1000000
-                sql = "UPDATE test_table SET jdoc = JSON_SET(jdoc, '$.float_1', JSON_EXTRACT(jdoc, '$.float_1') + 1, '$.float_2', JSON_EXTRACT(jdoc, '$.float_2') + 1, '$.float_3', JSON_EXTRACT(jdoc, '$.float_3') + 1) WHERE id = %s" % id_to_update
-                Sql.execute("test_database", sql, values, self.PERF_SQL_UPDATE_DATA)
+                #id_to_update = self.PERF_SQL_TOTAL_ROW_COUNT.get_current_value() - 1000000
+                #sql = "UPDATE test_table SET jdoc = JSON_SET(jdoc, '$.float_1', JSON_EXTRACT(jdoc, '$.float_1') + 1, '$.float_2', JSON_EXTRACT(jdoc, '$.float_2') + 1, '$.float_3', JSON_EXTRACT(jdoc, '$.float_3') + 1) WHERE id = %s" % id_to_update
+                #Sql.execute("test_database", sql, values, self.PERF_SQL_UPDATE_DATA)
+                print "TODO - UPDATE"
 
     def _do_large_query_work(self):
         Log.Log.log().info("Starting large query worker...")
-        while True:
-            id = self.PERF_SQL_TOTAL_ROW_COUNT._count
-            sql = "SELECT MAX(JSON_UNQUOTE(JSON_EXTRACT(jdoc, '$.float_10'))) FROM test_table WHERE id >= %s AND id <= %s" % (id-2000000, id)
-            Sql.execute("test_database", sql, None, self.PERF_SQL_LARGE_QUERY)
+        #while True:
+        #    id = self.PERF_SQL_TOTAL_ROW_COUNT._count
+        #    sql = "SELECT MAX(JSON_UNQUOTE(JSON_EXTRACT(jdoc, '$.float_10'))) FROM test_table WHERE id >= %s AND id <= %s" % (id-2000000, id)
+        #    Sql.execute("test_database", sql, None, self.PERF_SQL_LARGE_QUERY)
 
     def _dump_table_status(self):
-        r = Sql.query("test_database", "SHOW TABLE STATUS ")
-        Log.Log.log().info("Table status: %s" % repr(r))
+        pass
         Timer.create_callback(None, 60000, self._dump_table_status)
 
     def on_start(self):
+        conn = pymongo.MongoClient('10.0.0.50', 27017)
+
         # Get the existing row count
-        self.PERF_SQL_TOTAL_ROW_COUNT.set_initial_value(Sql.query("test_database", "SELECT COUNT(*) AS count FROM test_table")[0]["count"])
+        self.PERF_SQL_TOTAL_ROW_COUNT.set_initial_value(conn.test_db.test_table.count())
 
         # Start the workers
         for x in range(0, int(self.application_config().get_application_setting("ConcurrentCount", "1"))):
@@ -118,7 +128,7 @@ class StoragEngineTest(Application):
 #
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='Storage Engine Test')
+    parser = argparse.ArgumentParser(description='Mongo DB CRUD Performance Test')
     parser.add_argument('--config', help='configuration file name')
     args = parser.parse_args()
 
@@ -128,5 +138,5 @@ if __name__ == "__main__":
         parser.exit()
     else:
         print "Starting application using configuration file [%s]." % args.config
-        comm = StoragEngineTest(args)
+        comm = CRUDTest(args)
         comm.start()
