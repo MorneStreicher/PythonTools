@@ -8,14 +8,14 @@ db.createCollection("test_table",
                           size: 0,
                           max: 0,
                           // storageEngine: <document>,
-                          validator: { $and: [ { index_1: { $exists: true } }, { index_1: { $exists: true } } ] },
+                          validator: { $and: [ { index_1: { $exists: true } }, { index_2: { $exists: true } } ] },
                           validationLevel: "moderate",
                           validationAction: "error",
                           // indexOptionDefaults: <document>,
                           // viewOn: <string>,
                           // pipeline: <pipeline>,
                           collation: { locale: "en" } });
-                          
+
 db.test_table.createIndex( 
 	{ index_1: 1 },
 	{
@@ -29,10 +29,9 @@ db.test_table.createIndex(
 	} 
 );
 
-
-
 db.test_table.createIndex( { index_2: 1 } );
 db.test_table.createIndex( { index_3: 1 } );
 db.test_table.createIndex( { index_4: 1 } );
 db.test_table.createIndex( { index_5: 1 } );
 
+db.test_table.createIndex( { id: 1 } );

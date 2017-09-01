@@ -1,22 +1,25 @@
 import pymongo
-import datetime
 
-conn=pymongo.MongoClient('USERVER2', 27017)
+conn=pymongo.MongoClient('MySqlDbServer', 27017)
 
-start = datetime.datetime.now()
-
-for x in range(0, 1):
-    doc = {
-        "name": "Name %s" % x,
-        "surname": "Surname %s" % x,
+doc = {
+        "id" : "getNextSequence('test_table')",
+        "name": "Name 1",
+        "surname": "Surname 1",
         "age": 42
+      }
+conn.test_db.test_table2.insert(doc)
 
-    }
-    conn.test_db.test_table.insert(doc)
+print conn.test_db.test_table.aggregate(
+    [
+        { "$match": {"id": { "$gt": 0, "$lt": 100}}},
+        {
+            "$group": {
+                "_id": 1,
+                "maxFloat1": {"$max": "$index_1"}
+            }
+        }
+    ]
+).next()
 
-end = datetime.datetime.now()
-
-print "Time taken: %s" % (end - start)
-
-for cur in conn.morne.col_1.find().sort([("name", pymongo.ASCENDING), ("surname", pymongo.ASCENDING)]).skip(20000).limit(10):
-    print cur
+#print Json.dumps(conn.admin.command({ "serverStatus": 1 }))

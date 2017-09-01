@@ -1,15 +1,20 @@
 import argparse
-import json
 import random
 import pymongo
-import json
 from morne.sdk.perfcounters import StopWatch
 
 import morne.sdk.app.Log as Log
 from morne.sdk.app.Application import Application, ApplicationConfig
 from morne.sdk.app.Timer import Timer
 from morne.sdk.perfcounters import Counter, PerfCounters
-from morne.sdk.sql.Sql import Sql
+
+
+def call_timed(timer, func, *args, **kwargs):
+    sw = StopWatch.StopWatch.start_new()
+    result = func(*args, **kwargs)
+    sw.stop()
+    timer.apply(sw)
+    return result
 
 class CRUDTest(Application):
     def __init__(self, _args):
@@ -53,7 +58,7 @@ class CRUDTest(Application):
 
     def _do_insert_update_work(self):
         Log.Log.log().info("Starting insert / update worker...")
-        conn = pymongo.MongoClient('10.0.0.50', 27017)
+        conn = pymongo.MongoClient(self.application_config().get_application_setting("MongoDB"), 27017)
 
         while True:
             values = dict()
@@ -68,37 +73,49 @@ class CRUDTest(Application):
             values["index_4"] = str((random.randint(0, 9999999999))).zfill(10)
             values["index_5"] = str((random.randint(0, 9999999999))).zfill(10)
 
+            values ["id"] = self.PERF_SQL_TOTAL_ROW_COUNT.get_current_value()
+
             # Do the insert
-            #jdoc = json.dumps(values)
-            #print jdoc
-            sw = StopWatch.StopWatch.start_new()
-            conn.test_db.test_table.insert(values)
-            sw.stop()
-            self.PERF_SQL_INSERT_DATA.apply(sw)
+            call_timed(self.PERF_SQL_INSERT_DATA, conn.test_db.test_table.insert, values)
 
             self.PERF_SQL_TOTAL_ROW_COUNT.apply()
 
             # Do the update, if we need to
             perc_to_update = int(self.application_config().get_application_setting("PercentageToUpdate", "50"))
             if random.randint(1, 100) <= perc_to_update:
-                #id_to_update = self.PERF_SQL_TOTAL_ROW_COUNT.get_current_value() - 1000000
-                #sql = "UPDATE test_table SET jdoc = JSON_SET(jdoc, '$.float_1', JSON_EXTRACT(jdoc, '$.float_1') + 1, '$.float_2', JSON_EXTRACT(jdoc, '$.float_2') + 1, '$.float_3', JSON_EXTRACT(jdoc, '$.float_3') + 1) WHERE id = %s" % id_to_update
-                #Sql.execute("test_database", sql, values, self.PERF_SQL_UPDATE_DATA)
-                print "TODO - UPDATE"
+                id_to_update = self.PERF_SQL_TOTAL_ROW_COUNT.get_current_value() - 10
+                call_timed(
+                    self.PERF_SQL_UPDATE_DATA,
+                    conn.test_db.test_table.update_one,
+                       {"id": id_to_update},
+                       {"$inc": {'float_1': 1, 'float_2': 1, 'float_3': 1}})
 
     def _do_large_query_work(self):
         Log.Log.log().info("Starting large query worker...")
-        #while True:
-        #    id = self.PERF_SQL_TOTAL_ROW_COUNT._count
-        #    sql = "SELECT MAX(JSON_UNQUOTE(JSON_EXTRACT(jdoc, '$.float_10'))) FROM test_table WHERE id >= %s AND id <= %s" % (id-2000000, id)
-        #    Sql.execute("test_database", sql, None, self.PERF_SQL_LARGE_QUERY)
+        conn = pymongo.MongoClient(self.application_config().get_application_setting("MongoDB"), 27017)
+
+        while True:
+            id = self.PERF_SQL_TOTAL_ROW_COUNT.get_current_value()
+            call_timed(
+                self.PERF_SQL_LARGE_QUERY,
+                conn.test_db.test_table.aggregate,
+                [
+                    {"$match": {"id": {"$gt": id - 1000000, "$lt": id}}},
+                    {
+                        "$group": {
+                            "_id": 1,
+                            "maxFloat1": {"$max": "$index_1"}
+                        }
+                    }
+                ]
+            )
 
     def _dump_table_status(self):
         pass
         Timer.create_callback(None, 60000, self._dump_table_status)
 
     def on_start(self):
-        conn = pymongo.MongoClient('10.0.0.50', 27017)
+        conn = pymongo.MongoClient(self.application_config().get_application_setting("MongoDB"), 27017)
 
         # Get the existing row count
         self.PERF_SQL_TOTAL_ROW_COUNT.set_initial_value(conn.test_db.test_table.count())
@@ -116,12 +133,6 @@ class CRUDTest(Application):
 
     def is_service(self):
         return True
-
-    def process_timer_event(self, timer):
-        pass
-
-    def process_other_event(self, event):
-        pass
 
 ###############################################################################
 # The application entry point
