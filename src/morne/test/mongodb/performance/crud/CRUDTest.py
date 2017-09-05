@@ -1,12 +1,13 @@
 import argparse
 import random
+
 import pymongo
-from morne.sdk.perfcounters import StopWatch
 
 import morne.sdk.app.Log as Log
 from morne.sdk.app.Application import Application, ApplicationConfig
 from morne.sdk.app.Timer import Timer
 from morne.sdk.perfcounters import Counter, PerfCounters
+from morne.sdk.perfcounters import StopWatch
 
 
 def call_timed(timer, func, *args, **kwargs):
