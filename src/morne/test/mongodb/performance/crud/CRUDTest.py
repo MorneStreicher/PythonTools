@@ -9,6 +9,9 @@ from morne.sdk.app.Timer import Timer
 from morne.sdk.perfcounters import Counter, PerfCounters
 from morne.sdk.perfcounters import StopWatch
 
+very_large_random_string = ""
+for x in range(0, 5*1024*1024):
+    very_large_random_string = very_large_random_string + str(chr(random.randint(32, 100)))
 
 def call_timed(timer, func, *args, **kwargs):
     sw = StopWatch.StopWatch.start_new()
@@ -19,10 +22,6 @@ def call_timed(timer, func, *args, **kwargs):
 
 class CRUDTest(Application):
     def __init__(self, _args):
-        self.server_sap = None
-        self.endpoint = None
-        self.journal_count = 0
-
         config = ApplicationConfig.ApplicationConfig(filename=_args.config)
         Application.__init__(self, config)
 
@@ -64,7 +63,8 @@ class CRUDTest(Application):
         while True:
             values = dict()
             for cur in range(1, 21):
-                values["varchar_%s" % cur] = "This is a varchar value %s. This is additional data to the string value. This is additional data to the string value. " % cur
+                r = random.randint(1, 5*1024*1024 - 1000)
+                values["varchar_%s" % cur] = very_large_random_string[r:r+120]
                 values["float_%s" % cur] = cur
 
             # Populate index values
@@ -120,6 +120,7 @@ class CRUDTest(Application):
 
         # Get the existing row count
         self.PERF_SQL_TOTAL_ROW_COUNT.set_initial_value(conn.test_db.test_table.count())
+        Log.Log.log().info("Collection row count = %s" % self.PERF_SQL_TOTAL_ROW_COUNT.get_current_value())
 
         # Start the workers
         for x in range(0, int(self.application_config().get_application_setting("ConcurrentCount", "1"))):

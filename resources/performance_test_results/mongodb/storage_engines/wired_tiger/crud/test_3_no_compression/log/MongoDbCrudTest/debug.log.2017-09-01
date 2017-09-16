@@ -1,0 +1,278 @@
+2017-09-01 07:12:06,269 root     INFO     -------------------------------------
+
+
+2017-09-01 07:12:06,270 root     INFO     Starting CRUDTest
+2017-09-01 07:12:06,270 root     INFO     Application log was initialized to the level INFO
+2017-09-01 07:12:06,270 root     INFO     Starting application counter publisher
+2017-09-01 07:12:06,273 root     INFO     Register application signal handlers...
+2017-09-01 07:12:06,273 root     INFO     Starting up application queue executer: App Executer 1
+2017-09-01 07:12:06,273 root     INFO     Starting up application queue executer: App Executer 2
+2017-09-01 07:12:06,273 root     INFO     Starting up application queue executer: App Executer 3
+2017-09-01 07:12:06,275 root     INFO     Starting up application queue executer: App Executer 4
+2017-09-01 07:12:06,305 root     INFO     Starting up application queue executer: App Executer 5
+2017-09-01 07:12:06,305 root     INFO     Starting up application queue executer: App Executer 6
+2017-09-01 07:12:06,305 root     INFO     Starting up application queue executer: App Executer 7
+2017-09-01 07:12:06,305 root     INFO     Starting up application queue executer: App Executer 8
+2017-09-01 07:12:06,305 root     INFO     Starting up application queue executer: App Executer 9
+2017-09-01 07:12:06,306 root     INFO     Starting up application queue executer: App Executer 10
+2017-09-01 07:12:06,306 root     INFO     Starting up application queue executer: App Executer 11
+2017-09-01 07:12:06,308 root     INFO     Starting up application queue executer: App Executer 12
+2017-09-01 07:12:06,309 root     INFO     Starting up application queue executer: App Executer 13
+2017-09-01 07:12:06,309 root     INFO     Starting up application queue executer: App Executer 14
+2017-09-01 07:12:06,309 root     INFO     Starting up application queue executer: App Executer 15
+2017-09-01 07:12:06,311 root     INFO     Starting up application queue executer: App Executer 16
+2017-09-01 07:12:06,312 root     INFO     Setting up database connection details
+2017-09-01 07:12:06,312 root     INFO     Starting up the main application...
+2017-09-01 07:12:06,321 root     INFO     The application indicated that it is a service. The main application thread will now remain alive, but inactive.
+2017-09-01 07:12:07,329 root     INFO     Starting insert / update worker...
+2017-09-01 07:12:07,329 root     INFO     Starting large query worker...
+2017-09-01 07:15:29,842 root     INFO     -------------------------------------
+
+
+2017-09-01 07:15:29,842 root     INFO     Starting CRUDTest
+2017-09-01 07:15:29,842 root     INFO     Application log was initialized to the level INFO
+2017-09-01 07:15:29,842 root     INFO     Starting application counter publisher
+2017-09-01 07:15:29,844 root     INFO     Register application signal handlers...
+2017-09-01 07:15:29,844 root     INFO     Starting up application queue executer: App Executer 1
+2017-09-01 07:15:29,845 root     INFO     Starting up application queue executer: App Executer 2
+2017-09-01 07:15:29,845 root     INFO     Starting up application queue executer: App Executer 3
+2017-09-01 07:15:29,845 root     INFO     Starting up application queue executer: App Executer 4
+2017-09-01 07:15:29,845 root     INFO     Starting up application queue executer: App Executer 5
+2017-09-01 07:15:29,845 root     INFO     Starting up application queue executer: App Executer 6
+2017-09-01 07:15:29,846 root     INFO     Starting up application queue executer: App Executer 7
+2017-09-01 07:15:29,846 root     INFO     Starting up application queue executer: App Executer 8
+2017-09-01 07:15:29,848 root     INFO     Starting up application queue executer: App Executer 9
+2017-09-01 07:15:29,848 root     INFO     Starting up application queue executer: App Executer 10
+2017-09-01 07:15:29,848 root     INFO     Starting up application queue executer: App Executer 11
+2017-09-01 07:15:29,848 root     INFO     Starting up application queue executer: App Executer 12
+2017-09-01 07:15:29,848 root     INFO     Starting up application queue executer: App Executer 13
+2017-09-01 07:15:29,849 root     INFO     Starting up application queue executer: App Executer 14
+2017-09-01 07:15:29,849 root     INFO     Starting up application queue executer: App Executer 15
+2017-09-01 07:15:29,849 root     INFO     Starting up application queue executer: App Executer 16
+2017-09-01 07:15:29,851 root     INFO     Setting up database connection details
+2017-09-01 07:15:29,851 root     INFO     Starting up the main application...
+2017-09-01 07:15:29,858 root     INFO     The application indicated that it is a service. The main application thread will now remain alive, but inactive.
+2017-09-01 07:15:30,864 root     INFO     Starting insert / update worker...
+2017-09-01 07:15:30,864 root     INFO     Starting large query worker...
+2017-09-01 07:33:41,032 root     INFO     -------------------------------------
+
+
+2017-09-01 07:33:41,032 root     INFO     Starting CRUDTest
+2017-09-01 07:33:41,032 root     INFO     Application log was initialized to the level INFO
+2017-09-01 07:33:41,039 root     INFO     Starting application counter publisher
+2017-09-01 07:33:41,042 root     INFO     Register application signal handlers...
+2017-09-01 07:33:41,042 root     INFO     Starting up application queue executer: App Executer 1
+2017-09-01 07:33:41,043 root     INFO     Starting up application queue executer: App Executer 2
+2017-09-01 07:33:41,043 root     INFO     Starting up application queue executer: App Executer 3
+2017-09-01 07:33:41,045 root     INFO     Starting up application queue executer: App Executer 4
+2017-09-01 07:33:41,045 root     INFO     Starting up application queue executer: App Executer 5
+2017-09-01 07:33:41,046 root     INFO     Starting up application queue executer: App Executer 6
+2017-09-01 07:33:41,046 root     INFO     Starting up application queue executer: App Executer 7
+2017-09-01 07:33:41,046 root     INFO     Starting up application queue executer: App Executer 8
+2017-09-01 07:33:41,048 root     INFO     Starting up application queue executer: App Executer 9
+2017-09-01 07:33:41,048 root     INFO     Starting up application queue executer: App Executer 10
+2017-09-01 07:33:41,049 root     INFO     Starting up application queue executer: App Executer 11
+2017-09-01 07:33:41,049 root     INFO     Starting up application queue executer: App Executer 12
+2017-09-01 07:33:41,049 root     INFO     Starting up application queue executer: App Executer 13
+2017-09-01 07:33:41,049 root     INFO     Starting up application queue executer: App Executer 14
+2017-09-01 07:33:41,051 root     INFO     Starting up application queue executer: App Executer 15
+2017-09-01 07:33:41,052 root     INFO     Starting up application queue executer: App Executer 16
+2017-09-01 07:33:41,052 root     INFO     Setting up database connection details
+2017-09-01 07:33:41,052 root     INFO     Starting up the main application...
+2017-09-01 07:33:41,062 root     INFO     The application indicated that it is a service. The main application thread will now remain alive, but inactive.
+2017-09-01 07:33:42,066 root     INFO     Starting insert / update worker...
+2017-09-01 07:33:42,068 root     INFO     Starting large query worker...
+2017-09-01 07:33:53,213 root     INFO     -------------------------------------
+
+
+2017-09-01 07:33:53,213 root     INFO     Starting CRUDTest
+2017-09-01 07:33:53,213 root     INFO     Application log was initialized to the level INFO
+2017-09-01 07:33:53,214 root     INFO     Starting application counter publisher
+2017-09-01 07:33:53,216 root     INFO     Register application signal handlers...
+2017-09-01 07:33:53,217 root     INFO     Starting up application queue executer: App Executer 1
+2017-09-01 07:33:53,217 root     INFO     Starting up application queue executer: App Executer 2
+2017-09-01 07:33:53,217 root     INFO     Starting up application queue executer: App Executer 3
+2017-09-01 07:33:53,219 root     INFO     Starting up application queue executer: App Executer 4
+2017-09-01 07:33:53,219 root     INFO     Starting up application queue executer: App Executer 5
+2017-09-01 07:33:53,220 root     INFO     Starting up application queue executer: App Executer 6
+2017-09-01 07:33:53,220 root     INFO     Starting up application queue executer: App Executer 7
+2017-09-01 07:33:53,220 root     INFO     Starting up application queue executer: App Executer 8
+2017-09-01 07:33:53,220 root     INFO     Starting up application queue executer: App Executer 9
+2017-09-01 07:33:53,221 root     INFO     Starting up application queue executer: App Executer 10
+2017-09-01 07:33:53,221 root     INFO     Starting up application queue executer: App Executer 11
+2017-09-01 07:33:53,223 root     INFO     Starting up application queue executer: App Executer 12
+2017-09-01 07:33:53,223 root     INFO     Starting up application queue executer: App Executer 13
+2017-09-01 07:33:53,223 root     INFO     Starting up application queue executer: App Executer 14
+2017-09-01 07:33:53,223 root     INFO     Starting up application queue executer: App Executer 15
+2017-09-01 07:33:53,223 root     INFO     Starting up application queue executer: App Executer 16
+2017-09-01 07:33:53,224 root     INFO     Setting up database connection details
+2017-09-01 07:33:53,224 root     INFO     Starting up the main application...
+2017-09-01 07:33:53,233 root     INFO     The application indicated that it is a service. The main application thread will now remain alive, but inactive.
+2017-09-01 07:33:54,240 root     INFO     Starting insert / update worker...
+2017-09-01 07:33:54,240 root     INFO     Starting large query worker...
+2017-09-01 07:35:15,954 root     INFO     -------------------------------------
+
+
+2017-09-01 07:35:15,954 root     INFO     Starting CRUDTest
+2017-09-01 07:35:15,954 root     INFO     Application log was initialized to the level INFO
+2017-09-01 07:35:15,956 root     INFO     Starting application counter publisher
+2017-09-01 07:35:15,957 root     INFO     Register application signal handlers...
+2017-09-01 07:35:15,957 root     INFO     Starting up application queue executer: App Executer 1
+2017-09-01 07:35:15,957 root     INFO     Starting up application queue executer: App Executer 2
+2017-09-01 07:35:15,957 root     INFO     Starting up application queue executer: App Executer 3
+2017-09-01 07:35:15,959 root     INFO     Starting up application queue executer: App Executer 4
+2017-09-01 07:35:15,959 root     INFO     Starting up application queue executer: App Executer 5
+2017-09-01 07:35:15,960 root     INFO     Starting up application queue executer: App Executer 6
+2017-09-01 07:35:15,960 root     INFO     Starting up application queue executer: App Executer 7
+2017-09-01 07:35:15,960 root     INFO     Starting up application queue executer: App Executer 8
+2017-09-01 07:35:15,960 root     INFO     Starting up application queue executer: App Executer 9
+2017-09-01 07:35:15,961 root     INFO     Starting up application queue executer: App Executer 10
+2017-09-01 07:35:15,961 root     INFO     Starting up application queue executer: App Executer 11
+2017-09-01 07:35:15,963 root     INFO     Starting up application queue executer: App Executer 12
+2017-09-01 07:35:15,963 root     INFO     Starting up application queue executer: App Executer 13
+2017-09-01 07:35:15,963 root     INFO     Starting up application queue executer: App Executer 14
+2017-09-01 07:35:15,963 root     INFO     Starting up application queue executer: App Executer 15
+2017-09-01 07:35:15,964 root     INFO     Starting up application queue executer: App Executer 16
+2017-09-01 07:35:15,964 root     INFO     Setting up database connection details
+2017-09-01 07:35:15,966 root     INFO     Starting up the main application...
+2017-09-01 07:35:15,973 root     INFO     The application indicated that it is a service. The main application thread will now remain alive, but inactive.
+2017-09-01 07:35:16,983 root     INFO     Starting insert / update worker...
+2017-09-01 07:35:16,983 root     INFO     Starting large query worker...
+2017-09-01 07:38:17,835 root     INFO     -------------------------------------
+
+
+2017-09-01 07:38:17,835 root     INFO     Starting CRUDTest
+2017-09-01 07:38:17,835 root     INFO     Application log was initialized to the level INFO
+2017-09-01 07:38:17,835 root     INFO     Starting application counter publisher
+2017-09-01 07:38:17,836 root     INFO     Register application signal handlers...
+2017-09-01 07:38:17,838 root     INFO     Starting up application queue executer: App Executer 1
+2017-09-01 07:38:17,838 root     INFO     Starting up application queue executer: App Executer 2
+2017-09-01 07:38:17,838 root     INFO     Starting up application queue executer: App Executer 3
+2017-09-01 07:38:17,838 root     INFO     Starting up application queue executer: App Executer 4
+2017-09-01 07:38:17,839 root     INFO     Starting up application queue executer: App Executer 5
+2017-09-01 07:38:17,839 root     INFO     Starting up application queue executer: App Executer 6
+2017-09-01 07:38:17,839 root     INFO     Starting up application queue executer: App Executer 7
+2017-09-01 07:38:17,841 root     INFO     Starting up application queue executer: App Executer 8
+2017-09-01 07:38:17,841 root     INFO     Starting up application queue executer: App Executer 9
+2017-09-01 07:38:17,842 root     INFO     Starting up application queue executer: App Executer 10
+2017-09-01 07:38:17,842 root     INFO     Starting up application queue executer: App Executer 11
+2017-09-01 07:38:17,842 root     INFO     Starting up application queue executer: App Executer 12
+2017-09-01 07:38:17,842 root     INFO     Starting up application queue executer: App Executer 13
+2017-09-01 07:38:17,842 root     INFO     Starting up application queue executer: App Executer 14
+2017-09-01 07:38:17,844 root     INFO     Starting up application queue executer: App Executer 15
+2017-09-01 07:38:17,844 root     INFO     Starting up application queue executer: App Executer 16
+2017-09-01 07:38:17,844 root     INFO     Setting up database connection details
+2017-09-01 07:38:17,845 root     INFO     Starting up the main application...
+2017-09-01 07:38:17,855 root     INFO     The application indicated that it is a service. The main application thread will now remain alive, but inactive.
+2017-09-01 07:38:18,862 root     INFO     Starting insert / update worker...
+2017-09-01 07:38:18,865 root     INFO     Starting large query worker...
+2017-09-01 07:38:18,904 root     ERROR    [App Executer 1] Error while processing event: <Timer Event: reference = <Callback reference: <functools.partial object at 0x03681060>>; expires = 2017-09-01 05:38:18.854000>. The stack trace is: Traceback (most recent call last):
+  File "C:\GIT\PythonTools\src\morne\sdk\app\QueueExecuter.py", line 41, in run
+    self.process_event(event)
+  File "C:\GIT\PythonTools\src\morne\sdk\app\QueueExecuter.py", line 64, in process_event
+    self._process_timer_event(event)
+  File "C:\GIT\PythonTools\src\morne\sdk\app\QueueExecuter.py", line 80, in _process_timer_event
+    timer.reference.callback()()
+  File "C:/GIT/PythonTools/src/morne/test/mongodb/performance/crud/CRUDTest.py", line 91, in _do_insert_update_work
+    {"$inc": {'float_1': 1, 'float_2': 1, 'float_3': 1}})
+  File "C:/GIT/PythonTools/src/morne/test/mongodb/performance/crud/CRUDTest.py", line 14, in call_timed
+    result = func(args)
+TypeError: update_one() takes at least 3 arguments (2 given)
+
+2017-09-01 07:39:53,424 root     INFO     -------------------------------------
+
+
+2017-09-01 07:39:53,424 root     INFO     Starting CRUDTest
+2017-09-01 07:39:53,424 root     INFO     Application log was initialized to the level INFO
+2017-09-01 07:39:53,424 root     INFO     Starting application counter publisher
+2017-09-01 07:39:53,427 root     INFO     Register application signal handlers...
+2017-09-01 07:39:53,427 root     INFO     Starting up application queue executer: App Executer 1
+2017-09-01 07:39:53,427 root     INFO     Starting up application queue executer: App Executer 2
+2017-09-01 07:39:53,427 root     INFO     Starting up application queue executer: App Executer 3
+2017-09-01 07:39:53,428 root     INFO     Starting up application queue executer: App Executer 4
+2017-09-01 07:39:53,428 root     INFO     Starting up application queue executer: App Executer 5
+2017-09-01 07:39:53,428 root     INFO     Starting up application queue executer: App Executer 6
+2017-09-01 07:39:53,430 root     INFO     Starting up application queue executer: App Executer 7
+2017-09-01 07:39:53,430 root     INFO     Starting up application queue executer: App Executer 8
+2017-09-01 07:39:53,430 root     INFO     Starting up application queue executer: App Executer 9
+2017-09-01 07:39:53,430 root     INFO     Starting up application queue executer: App Executer 10
+2017-09-01 07:39:53,431 root     INFO     Starting up application queue executer: App Executer 11
+2017-09-01 07:39:53,431 root     INFO     Starting up application queue executer: App Executer 12
+2017-09-01 07:39:53,433 root     INFO     Starting up application queue executer: App Executer 13
+2017-09-01 07:39:53,433 root     INFO     Starting up application queue executer: App Executer 14
+2017-09-01 07:39:53,434 root     INFO     Starting up application queue executer: App Executer 15
+2017-09-01 07:39:53,434 root     INFO     Starting up application queue executer: App Executer 16
+2017-09-01 07:39:53,434 root     INFO     Setting up database connection details
+2017-09-01 07:39:53,434 root     INFO     Starting up the main application...
+2017-09-01 07:39:53,444 root     INFO     The application indicated that it is a service. The main application thread will now remain alive, but inactive.
+2017-09-01 07:39:54,451 root     INFO     Starting insert / update worker...
+2017-09-01 07:39:54,453 root     INFO     Starting large query worker...
+2017-09-01 07:39:54,486 root     ERROR    [App Executer 1] Error while processing event: <Timer Event: reference = <Callback reference: <functools.partial object at 0x030A1060>>; expires = 2017-09-01 05:39:54.443000>. The stack trace is: Traceback (most recent call last):
+  File "C:\GIT\PythonTools\src\morne\sdk\app\QueueExecuter.py", line 41, in run
+    self.process_event(event)
+  File "C:\GIT\PythonTools\src\morne\sdk\app\QueueExecuter.py", line 64, in process_event
+    self._process_timer_event(event)
+  File "C:\GIT\PythonTools\src\morne\sdk\app\QueueExecuter.py", line 80, in _process_timer_event
+    timer.reference.callback()()
+  File "C:/GIT/PythonTools/src/morne/test/mongodb/performance/crud/CRUDTest.py", line 92, in _do_insert_update_work
+    {"$inc": {'float_1': 1, 'float_2': 1, 'float_3': 1}})
+  File "C:/GIT/PythonTools/src/morne/test/mongodb/performance/crud/CRUDTest.py", line 15, in call_timed
+    result = func(args)
+TypeError: update_one() takes at least 3 arguments (2 given)
+
+2017-09-01 07:40:34,507 root     INFO     -------------------------------------
+
+
+2017-09-01 07:40:34,507 root     INFO     Starting CRUDTest
+2017-09-01 07:40:34,509 root     INFO     Application log was initialized to the level INFO
+2017-09-01 07:40:34,509 root     INFO     Starting application counter publisher
+2017-09-01 07:40:34,509 root     INFO     Register application signal handlers...
+2017-09-01 07:40:34,510 root     INFO     Starting up application queue executer: App Executer 1
+2017-09-01 07:40:34,510 root     INFO     Starting up application queue executer: App Executer 2
+2017-09-01 07:40:34,510 root     INFO     Starting up application queue executer: App Executer 3
+2017-09-01 07:40:34,512 root     INFO     Starting up application queue executer: App Executer 4
+2017-09-01 07:40:34,512 root     INFO     Starting up application queue executer: App Executer 5
+2017-09-01 07:40:34,512 root     INFO     Starting up application queue executer: App Executer 6
+2017-09-01 07:40:34,513 root     INFO     Starting up application queue executer: App Executer 7
+2017-09-01 07:40:34,513 root     INFO     Starting up application queue executer: App Executer 8
+2017-09-01 07:40:34,513 root     INFO     Starting up application queue executer: App Executer 9
+2017-09-01 07:40:34,513 root     INFO     Starting up application queue executer: App Executer 10
+2017-09-01 07:40:34,513 root     INFO     Starting up application queue executer: App Executer 11
+2017-09-01 07:40:34,515 root     INFO     Starting up application queue executer: App Executer 12
+2017-09-01 07:40:34,515 root     INFO     Starting up application queue executer: App Executer 13
+2017-09-01 07:40:34,515 root     INFO     Starting up application queue executer: App Executer 14
+2017-09-01 07:40:34,516 root     INFO     Starting up application queue executer: App Executer 15
+2017-09-01 07:40:34,516 root     INFO     Starting up application queue executer: App Executer 16
+2017-09-01 07:40:34,516 root     INFO     Setting up database connection details
+2017-09-01 07:40:34,516 root     INFO     Starting up the main application...
+2017-09-01 07:40:34,526 root     INFO     The application indicated that it is a service. The main application thread will now remain alive, but inactive.
+2017-09-01 07:40:35,529 root     INFO     Starting insert / update worker...
+2017-09-01 07:40:35,530 root     INFO     Starting large query worker...
+2017-09-01 07:41:54,918 root     INFO     -------------------------------------
+
+
+2017-09-01 07:41:54,918 root     INFO     Starting CRUDTest
+2017-09-01 07:41:54,918 root     INFO     Application log was initialized to the level INFO
+2017-09-01 07:41:54,920 root     INFO     Starting application counter publisher
+2017-09-01 07:41:54,920 root     INFO     Register application signal handlers...
+2017-09-01 07:41:54,921 root     INFO     Starting up application queue executer: App Executer 1
+2017-09-01 07:41:54,921 root     INFO     Starting up application queue executer: App Executer 2
+2017-09-01 07:41:54,923 root     INFO     Starting up application queue executer: App Executer 3
+2017-09-01 07:41:54,923 root     INFO     Starting up application queue executer: App Executer 4
+2017-09-01 07:41:54,924 root     INFO     Starting up application queue executer: App Executer 5
+2017-09-01 07:41:54,924 root     INFO     Starting up application queue executer: App Executer 6
+2017-09-01 07:41:54,924 root     INFO     Starting up application queue executer: App Executer 7
+2017-09-01 07:41:54,924 root     INFO     Starting up application queue executer: App Executer 8
+2017-09-01 07:41:54,926 root     INFO     Starting up application queue executer: App Executer 9
+2017-09-01 07:41:54,926 root     INFO     Starting up application queue executer: App Executer 10
+2017-09-01 07:41:54,927 root     INFO     Starting up application queue executer: App Executer 11
+2017-09-01 07:41:54,927 root     INFO     Starting up application queue executer: App Executer 12
+2017-09-01 07:41:54,927 root     INFO     Starting up application queue executer: App Executer 13
+2017-09-01 07:41:54,928 root     INFO     Starting up application queue executer: App Executer 14
+2017-09-01 07:41:54,928 root     INFO     Starting up application queue executer: App Executer 15
+2017-09-01 07:41:54,930 root     INFO     Starting up application queue executer: App Executer 16
+2017-09-01 07:41:54,930 root     INFO     Setting up database connection details
+2017-09-01 07:41:54,930 root     INFO     Starting up the main application...
+2017-09-01 07:41:54,937 root     INFO     The application indicated that it is a service. The main application thread will now remain alive, but inactive.
+2017-09-01 07:41:55,940 root     INFO     Starting insert / update worker...
+2017-09-01 07:41:55,941 root     INFO     Starting large query worker...

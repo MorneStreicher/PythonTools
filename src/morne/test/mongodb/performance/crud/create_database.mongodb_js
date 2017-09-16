@@ -7,7 +7,9 @@ db.createCollection("test_table", {
     autoIndexId: true,
     size: 0,
     max: 0,
-    // storageEngine: <document>,
+    storageEngine: {
+        wiredTiger: { configString: 'block_compressor=none' } /* Default compression option is "snappy" */
+    }
     validator: {
         $and: [{
             index_1: {
