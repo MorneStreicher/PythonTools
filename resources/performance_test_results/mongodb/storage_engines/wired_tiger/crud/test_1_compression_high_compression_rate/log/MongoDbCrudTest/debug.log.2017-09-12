@@ -1,0 +1,88 @@
+2017-09-12 22:48:31,921 root     INFO     -------------------------------------
+
+
+2017-09-12 22:48:31,926 root     INFO     Starting CRUDTest
+2017-09-12 22:48:31,926 root     INFO     Application log was initialized to the level INFO
+2017-09-12 22:48:31,927 root     INFO     Starting application counter publisher
+2017-09-12 22:48:31,927 root     INFO     Register application signal handlers...
+2017-09-12 22:48:31,929 root     INFO     Starting up application queue executer: App Executer 1
+2017-09-12 22:48:31,930 root     INFO     Starting up application queue executer: App Executer 2
+2017-09-12 22:48:31,930 root     INFO     Starting up application queue executer: App Executer 3
+2017-09-12 22:48:31,931 root     INFO     Starting up application queue executer: App Executer 4
+2017-09-12 22:48:31,931 root     INFO     Starting up application queue executer: App Executer 5
+2017-09-12 22:48:31,931 root     INFO     Starting up application queue executer: App Executer 6
+2017-09-12 22:48:31,932 root     INFO     Starting up application queue executer: App Executer 7
+2017-09-12 22:48:31,933 root     INFO     Starting up application queue executer: App Executer 8
+2017-09-12 22:48:31,933 root     INFO     Starting up application queue executer: App Executer 9
+2017-09-12 22:48:31,933 root     INFO     Starting up application queue executer: App Executer 10
+2017-09-12 22:48:31,934 root     INFO     Starting up application queue executer: App Executer 11
+2017-09-12 22:48:31,934 root     INFO     Starting up application queue executer: App Executer 12
+2017-09-12 22:48:31,934 root     INFO     Starting up application queue executer: App Executer 13
+2017-09-12 22:48:31,935 root     INFO     Starting up application queue executer: App Executer 14
+2017-09-12 22:48:31,936 root     INFO     Starting up application queue executer: App Executer 15
+2017-09-12 22:48:31,936 root     INFO     Starting up application queue executer: App Executer 16
+2017-09-12 22:48:31,937 root     INFO     Starting up application queue executer: App Executer 17
+2017-09-12 22:48:31,937 root     INFO     Starting up application queue executer: App Executer 18
+2017-09-12 22:48:31,937 root     INFO     Starting up application queue executer: App Executer 19
+2017-09-12 22:48:31,937 root     INFO     Starting up application queue executer: App Executer 20
+2017-09-12 22:48:31,937 root     INFO     Setting up database connection details
+2017-09-12 22:48:31,938 root     INFO     Starting up the main application...
+2017-09-12 22:49:01,998 root     CRITICAL Application generated an exception during startup and will now terminate. Exception:
+ Traceback (most recent call last):
+  File "/share/LocalPythonTools/src/morne/sdk/app/Application.py", line 124, in start
+    self.on_start()
+  File "CRUDTest.py", line 118, in on_start
+    self.PERF_SQL_TOTAL_ROW_COUNT.set_initial_value(conn.test_db.test_table.count())
+  File "/morne/local/lib/python2.7/site-packages/pymongo/collection.py", line 1394, in count
+    return self._count(cmd, collation)
+  File "/morne/local/lib/python2.7/site-packages/pymongo/collection.py", line 1344, in _count
+    with self._socket_for_reads() as (sock_info, slave_ok):
+  File "/usr/lib/python2.7/contextlib.py", line 17, in __enter__
+    return self.gen.next()
+  File "/morne/local/lib/python2.7/site-packages/pymongo/mongo_client.py", line 904, in _socket_for_reads
+    with self._get_socket(read_preference) as sock_info:
+  File "/usr/lib/python2.7/contextlib.py", line 17, in __enter__
+    return self.gen.next()
+  File "/morne/local/lib/python2.7/site-packages/pymongo/mongo_client.py", line 868, in _get_socket
+    server = self._get_topology().select_server(selector)
+  File "/morne/local/lib/python2.7/site-packages/pymongo/topology.py", line 214, in select_server
+    address))
+  File "/morne/local/lib/python2.7/site-packages/pymongo/topology.py", line 189, in select_servers
+    self._error_message(selector))
+ServerSelectionTimeoutError: 10.0.0.50:27017: [Errno 111] Connection refused
+
+2017-09-12 22:49:26,295 root     INFO     -------------------------------------
+
+
+2017-09-12 22:49:26,295 root     INFO     Starting CRUDTest
+2017-09-12 22:49:26,295 root     INFO     Application log was initialized to the level INFO
+2017-09-12 22:49:26,296 root     INFO     Starting application counter publisher
+2017-09-12 22:49:26,296 root     INFO     Register application signal handlers...
+2017-09-12 22:49:26,297 root     INFO     Starting up application queue executer: App Executer 1
+2017-09-12 22:49:26,297 root     INFO     Starting up application queue executer: App Executer 2
+2017-09-12 22:49:26,297 root     INFO     Starting up application queue executer: App Executer 3
+2017-09-12 22:49:26,298 root     INFO     Starting up application queue executer: App Executer 4
+2017-09-12 22:49:26,298 root     INFO     Starting up application queue executer: App Executer 5
+2017-09-12 22:49:26,298 root     INFO     Starting up application queue executer: App Executer 6
+2017-09-12 22:49:26,298 root     INFO     Starting up application queue executer: App Executer 7
+2017-09-12 22:49:26,298 root     INFO     Starting up application queue executer: App Executer 8
+2017-09-12 22:49:26,299 root     INFO     Starting up application queue executer: App Executer 9
+2017-09-12 22:49:26,299 root     INFO     Starting up application queue executer: App Executer 10
+2017-09-12 22:49:26,299 root     INFO     Starting up application queue executer: App Executer 11
+2017-09-12 22:49:26,300 root     INFO     Starting up application queue executer: App Executer 12
+2017-09-12 22:49:26,300 root     INFO     Starting up application queue executer: App Executer 13
+2017-09-12 22:49:26,300 root     INFO     Starting up application queue executer: App Executer 14
+2017-09-12 22:49:26,300 root     INFO     Starting up application queue executer: App Executer 15
+2017-09-12 22:49:26,301 root     INFO     Starting up application queue executer: App Executer 16
+2017-09-12 22:49:26,301 root     INFO     Starting up application queue executer: App Executer 17
+2017-09-12 22:49:26,301 root     INFO     Starting up application queue executer: App Executer 18
+2017-09-12 22:49:26,301 root     INFO     Starting up application queue executer: App Executer 19
+2017-09-12 22:49:26,302 root     INFO     Starting up application queue executer: App Executer 20
+2017-09-12 22:49:26,302 root     INFO     Setting up database connection details
+2017-09-12 22:49:26,302 root     INFO     Starting up the main application...
+2017-09-12 22:49:26,306 root     INFO     The application indicated that it is a service. The main application thread will now remain alive, but inactive.
+2017-09-12 22:49:27,315 root     INFO     Starting insert / update worker...
+2017-09-12 22:49:27,316 root     INFO     Starting insert / update worker...
+2017-09-12 22:49:27,316 root     INFO     Starting insert / update worker...
+2017-09-12 22:49:27,317 root     INFO     Starting insert / update worker...
+2017-09-12 22:49:27,318 root     INFO     Starting large query worker...
